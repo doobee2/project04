@@ -13,22 +13,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-// applicationContext.xml 대신함
 @Configuration
-@ComponentScan(basePackages = {"kr.ed.haebeop.service", "kr.ed.haebeop.repository"})
-@MapperScan(basePackages = {"kr.ed.haebeop.persistence"})   // MyBatis-Spring
+@ComponentScan(basePackages = "kr.ed.haebeop.service")
+@MapperScan( basePackages = "kr.ed.haebeop.persistence")
 public class RootConfig {
 
     @Autowired
     private ApplicationContext applicationContext;
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplate() throws Exception {       // SqlSession 설정
-        return new SqlSessionTemplate((SqlSessionFactory) sqlSessionFactoryBean());
+    public SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactory);
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {     // SqlFactory 설정
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:/mybatis-config.xml"));
         sqlSessionFactory.setMapperLocations(applicationContext.getResources("classpath*:/mappers/**/*Mapper.xml"));
@@ -37,28 +36,31 @@ public class RootConfig {
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager() {              // 트랜잭션 설정
+    public DataSourceTransactionManager transactionManager() {
         DataSourceTransactionManager transaction = new DataSourceTransactionManager();
         transaction.setDataSource(dataSource());
         return transaction;
     }
 
     @Bean
-    public BasicDataSource dataSource() {                                   // 데이터베이스 설정
+    public BasicDataSource dataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName("org.mariadb.jdbc.Driver");
         basicDataSource.setUrl("jdbc:mariadb://localhost:3306/haebeop");
+/*
+        basicDataSource.setUsername("root");
+        basicDataSource.setPassword("1234");
+*/
         basicDataSource.setUsername("root");
         basicDataSource.setPassword("1234");
         return basicDataSource;
     }
 
     @Bean
-    public CommonsMultipartResolver multipartResolver() {                   // 멀티파트 파일 업로드 설정
+    public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
-        commonsMultipartResolver.setMaxUploadSize(1000000000);
-        commonsMultipartResolver.setMaxInMemorySize(1000000000);
+        commonsMultipartResolver.setMaxUploadSize(100000000);
+        commonsMultipartResolver.setMaxInMemorySize(100000000);
         return commonsMultipartResolver;
     }
-
 }

@@ -23,7 +23,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/free/*")
-public class FreeController {
+public class FreeCtrl {
 
     @Autowired
     private FreeService freeService;

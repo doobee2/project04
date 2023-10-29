@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/comment/*")
-public class CommentController {
+public class CommentCtrl {
 
     @Autowired
     private CommentService commentService;

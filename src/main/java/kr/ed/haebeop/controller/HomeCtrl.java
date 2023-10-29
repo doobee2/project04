@@ -1,8 +1,7 @@
 package kr.ed.haebeop.controller;
 
-import kr.ed.haebeop.service.LectureService;
-import kr.ed.haebeop.service.MemberService;
-import kr.ed.haebeop.service.ReviewService;
+import kr.ed.haebeop.domain.*;
+import kr.ed.haebeop.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +15,12 @@ import java.util.Locale;
 @Controller
 public class HomeCtrl {
 
+
     @Autowired
     private ReviewService reviewService;
+
+    @Autowired
+    private NoticeService noticeService;
 
     @Autowired
     private LectureService lectureService;
@@ -25,20 +28,24 @@ public class HomeCtrl {
     @Autowired
     private MemberService memberService;
 
-
     @RequestMapping(value = "/")
-    public String index(Locale locale, Model model) {
+    public String index(Locale locale, Model model) throws Exception {
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
         String today = dateFormat.format(date);
+
+        List<Review> reviewList = reviewService.reviewList_main();
+        model.addAttribute("reviewList", reviewList);
+
+        List<LectureVO> lectureList = lectureService.lectureList_main();
+        model.addAttribute("lectureList", lectureList);
 
         model.addAttribute("today", today);
         model.addAttribute("title", "해법");
 
         return "/index";
     }
-
     @RequestMapping(value = "/sample")
     public String sample(Model model) {
         return "/sample";

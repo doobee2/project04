@@ -22,7 +22,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/databoard/*")
-public class DataboardController {
+public class DataboardCtrl {
 
     @Autowired
     private DataboardService databoardService;

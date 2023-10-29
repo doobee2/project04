@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
@@ -38,12 +37,6 @@ public class AdminCtrl {
     private MemberMgnService memberMgnService;
 
     @Autowired
-    private NoticeService noticeService;
-
-    @Autowired
-    private FreeService freeService;
-
-    @Autowired
     private CommentService commentService;
 
     @Autowired
@@ -57,7 +50,6 @@ public class AdminCtrl {
 
     @Autowired
     private PaymentService paymentService;
-
 
     @GetMapping("/")
     public String home(Model model) throws Exception {
@@ -89,22 +81,17 @@ public class AdminCtrl {
         return "/admin/memberList";
     }
 
-
-    //notice------------------------------------------------
-
-    @RequestMapping(value = "noticeList.do", method = RequestMethod.GET)
-    public String noticeList(HttpServletRequest request, Model model) throws Exception{
-
-        String type = request.getParameter("type");
-        String keyword = request.getParameter("keyword");
+    @GetMapping("/memberMgnConf.do")
+    public String memberMgnList(HttpServletRequest request, Model model) throws Exception {
+        String type = request.getParameter("type") != null ? request.getParameter("type") : "";
+        String keyword = request.getParameter("keyword") != null ? request.getParameter("keyword") : "";
         int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 
+        int total = memberMgnService.memberMgnCount();
 
         Page page = new Page();
         page.setSearchType(type);
         page.setSearchKeyword(keyword);
-        int total = noticeService.noticeCount(page);
-
         page.makeBlock(curPage, total);
         page.makeLastPageNum(total);
         page.makePostStart(curPage, total);
@@ -115,101 +102,7 @@ public class AdminCtrl {
         model.addAttribute("curPage", curPage);
 
 
-        List<Notice> noticeList = noticeService.noticeList(page);
-        model.addAttribute("noticeList", noticeList);
-        return "/admin/noticeList";
-    }
-
-    @GetMapping("noticeDetail.do")
-    public String noticeDetail(HttpServletRequest request, Model model) throws Exception{
-        int no = Integer.parseInt(request.getParameter("no"));
-        Notice notice = noticeService.noticeDetail(no);
-        model.addAttribute("notice", notice);
-        return "/admin/noticeDetail";
-    }
-
-    @GetMapping("noticeInsert.do")
-    public String noticeInsert(HttpServletRequest request, Model model) throws Exception{
-        return "/admin/noticeInsert";
-    }
-
-    @PostMapping("noticeInsert.do")
-    public String noticeInsertpro(HttpServletRequest request, Model model) throws Exception{
-        Notice notice = new Notice();
-        notice.setTitle(request.getParameter("title"));
-        notice.setContent(request.getParameter("content"));
-        noticeService.noticeInsert(notice);
-        return "redirect:/admin/List.do";
-    }
-
-    @GetMapping("noticeEdit.do")
-    public String noticeEdit(HttpServletRequest request, Model model) throws Exception{
-        int no = Integer.parseInt(request.getParameter("no"));
-        Notice notice = noticeService.noticeDetail(no);
-        model.addAttribute("notice", notice);
-        return "/admin/noticeEdit";
-    }
-
-    @PostMapping("noticeEdit.do")
-    public String noticeEditpro(HttpServletRequest request, Model model) throws Exception{
-        int no = Integer.parseInt(request.getParameter("no"));
-        Notice notice = new Notice();
-        notice.setNo(no);
-        notice.setTitle(request.getParameter("title"));
-        notice.setContent(request.getParameter("content"));
-        noticeService.noticeEdit(notice);
-        return "redirect:/admin/List.do";
-    }
-
-    @GetMapping("noticeDelete.do")
-    public String noticeDelete(HttpServletRequest request, Model model) throws Exception{
-        int no = Integer.parseInt(request.getParameter("no"));
-        noticeService.noticeDelete(no);
-        return "redirect:/admin/List.do";
-    }
-
-    //free------------------------------------------------
-    @GetMapping("FreeListAdmin.do")		//free/list.do
-    public String getfreeList(HttpServletRequest request, Model model) throws Exception {
-
-        String type = request.getParameter("type");
-        String keyword = request.getParameter("keyword");
-        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-
-        Page page = new Page();
-        page.setSearchType(type);
-        page.setSearchKeyword(keyword);
-        int total = freeService.totalCount(page);
-
-        page.makeBlock(curPage, total);
-        page.makeLastPageNum(total);
-        page.makePostStart(curPage, total);
-
-
-        List<Free> freeList = freeService.freeList(page);
-
-        model.addAttribute("type", type);
-        model.addAttribute("keyword", keyword);
-        model.addAttribute("page", page);
-        model.addAttribute("curPage", curPage);
-
-
-        model.addAttribute("freeList", freeList);
-        return "/admin/freeList";
-    }
-
-    @GetMapping("freeDetail.do")	//free/get.do?fno=1
-    public String getFree(HttpServletRequest request, Model model) throws Exception {
-        int fno = Integer.parseInt(request.getParameter("fno"));
-        Free dto = freeService.freeDetail(fno);
-        List<Comment> commentList = commentService.commentList(fno);
-        model.addAttribute("commentList", commentList);
-        model.addAttribute("dto", dto);
-        model.addAttribute("fno", fno);
-        System.out.println("dto : " + dto);
-        System.out.println("commentList : " + commentList);
-        System.out.println("fno : " + fno);
-        return "/admin/freeDetail";
+        return "/admin/memberApprove";
     }
 
 

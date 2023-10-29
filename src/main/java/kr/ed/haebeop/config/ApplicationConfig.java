@@ -1,12 +1,7 @@
 package kr.ed.haebeop.config;
 
-import kr.ed.haebeop.persistence.TestMapper1;
-import kr.ed.haebeop.repository.TestRepository;
-import kr.ed.haebeop.repository.TestRepositoryImpl;
-import kr.ed.haebeop.service.NoticeService;
-import kr.ed.haebeop.service.NoticeServiceImpl;
-import kr.ed.haebeop.service.TestService;
-import kr.ed.haebeop.service.TestServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import kr.ed.haebeop.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,13 +10,26 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "kr.ed.haebeop")
 public class ApplicationConfig {
 
+
+
+    // Chat
     @Bean
-    public TestService testService() {return new TestServiceImpl();}
+    public ObjectMapper mapper() { return new ObjectMapper(); }
+
+    // Service
+    @Bean
+    public MemberService memberService() {return new MemberServiceImpl();}
+
+    public MemberMgnService memberMgnService() {return new MemberMgnServiceImpl();}
 
     @Bean
-    public TestRepository testRepository() {return new TestRepositoryImpl();}
+    public CommentService commentService() {return new CommentServiceImpl();}
 
     @Bean
-    public NoticeService noticeService() {return new NoticeServiceImpl();}
+    public LectureService lectureService() {return new LectureServiceImpl();}
+
+    @Bean
+    public PaymentService paymentService() {return new PaymentServiceImpl();}
+
 
 }
