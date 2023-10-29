@@ -95,6 +95,15 @@
                             <div class="col-lg-4 col-12 mb-4">
                                 <div class="custom-block custom-block-full pb-1">
                                     <div class="custom-block-image-wrap">
+
+                                        <a href="${path}/user/myLecture.do?lno=${lecture.lno}">
+                                            <c:choose>
+                                                <c:when test="${!empty thumbnail}">
+                                                    <img src="${path }/resources/upload/${lecture.thumbnail }" width="300px">
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="${path }/resources/image/lecture/dummy.png" width="300px">
+
                                         <a href="${path}/user/mypageLecture.do?lno=${lecture.lno}" style="display:block;">
                                             <c:choose>
                                                 <c:when test="${!empty lecture.thumbnail}">
@@ -102,6 +111,7 @@
                                                 </c:when>
                                                 <c:otherwise>
                                                     <img src="${path }/resources/image/lecture/dummy.png" style="width:100%;">
+
                                                 </c:otherwise>
                                             </c:choose>
                                         </a>
@@ -109,7 +119,7 @@
 
                                     <div class="custom-block-info">
                                         <h3 class="mb-2">
-                                            <a href="${path}/user/mypageLecture.do?lno=${lecture.lno}">
+                                            <a href="${path}/user/myLecture.do?lno=${lecture.lno}">
                                                 ${lecture.title }
                                             </a>
                                         </h3>

@@ -55,6 +55,25 @@
 <link rel="stylesheet" href="${path }/resources/css/ft.css">
 <script src="${path }/resources/js/jquery-3.7.1.min.js"></script>
 
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="${path }/resources/lib/wow/wow.min.js"></script>
+<script src="${path }/resources/lib/easing/easing.min.js"></script>
+<script src="${path }/resources/lib/waypoints/waypoints.min.js"></script>
+<script src="${path }/resources/lib/counterup/counterup.min.js"></script>
+<script src="${path }/resources/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="${path }/resources/js/main.js"></script>
+
+<!-- Libraries Stylesheet -->
+<link href="${path }/resources/lib/animate/animate.min.css" rel="stylesheet">
+<link href="${path }/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="${path }/resources/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="${path }/resources/css/style.css" rel="stylesheet">
 
 <!--
 <script>

@@ -15,26 +15,13 @@
         h1{
             color: #3BBAE2
         }
-        body {
-            background: url(${path}/resources/image/common/loginback.jpg) no-repeat;
-            background-size: cover;
-            color: #fff;
-            font-family: 'Muli', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            width: 100vw;
-        }
+
 
         .container-login {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 20px 40px;
             border-radius: 5px;
-            width: 500px;
+            width: 600px;
         }
 
         .container-login h1 {
@@ -120,7 +107,20 @@
 </head>
 
 <body>
-
+<jsp:include page="../layout/header.jsp" />
+<!-- 페이지 상단 -->
+<div class="container-fluid pt-5 bg-primary hero-header">
+    <div class="container pt-5">
+        <div class="row g-5 pt-5">
+            <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                <h1 class="display-4 text-white mb-4 animated slideInRight">로그인</h1>
+                <nav aria-label="breadcrumb">
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 페이지 상단 끝 -->
 <div class="container-login">
     <h1>로그인</h1>
     <form action="${path }/user/loginPro.do" id="login_frm" class="frm" method="post">
@@ -128,15 +128,11 @@
             <input type="text" class="input" name="id" id="id" required />
             <label><span>아이디</span></label>
         </div>
-
         <div class="form-controller">
             <input type="password" class="input" name="pw" id="pw" required />
             <label><span>비밀번호</span></label>
         </div>
-
         <button type="submit" class="login-btn">로그인</button>
-        <div class="mt-3"><a href="${naver}"><img src="${path}/resources/image/common/naverLoginBtn.png" alt="naver login" style="width: 40%;"></a></div>
-
         <p class="text">회원이 아니신가요? <a href="${path }/user/term.do">회원가입</a></p>
     </form>
 </div>
@@ -155,4 +151,5 @@
 <script src="${path }/resources/js/common.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
+<jsp:include page="../layout/footer.jsp" />
 </html>

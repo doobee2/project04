@@ -91,8 +91,13 @@
             <h1>My learning</h1>
             <div style="text-align:center;">
             <c:choose>
+
+                <c:when test="${!empty thumbnail}">
+                    <video id="myVideo" src="${path }/resources/upload/${lecture.lvideo }" controls poster="${path }/resources/upload/${lecture.thumbnail }" style="width: 1200px; height: 780px;"></video>
+
                 <c:when test="${!empty lecture.thumbnail}">
                     <video id="myVideo" src="${path }/resources/upload/lecture/${lecture.lvideo }" controls poster="${path }/resources/upload/lecture/${lecture.thumbnail }" style="width: 1200px; height: 780px;"></video>
+
                 </c:when>
                 <c:otherwise>
                     <video id="myVideo" src="${path }/resources/image/lecture/lectvideo02.mp4" controls poster="${path }/resources/image/lecture/dummy.png" style="width: 1200px; height: 780px;"></video>

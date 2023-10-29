@@ -17,20 +17,24 @@
 <body>
 
 <jsp:include page="../layout/header.jsp" />
-<%-- 페이지 상단 --%>
-<div class="container-fluid bg-primary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-        <h3 class="display-3 font-weight-bold text-white">온라인 강의</h3>
-        <div class="d-inline-flex text-white">
-            <p class="m-0"><a class="text-white" href="${path }/">Home</a></p>
-            <p class="m-0 px-2">/</p>
-            <p class="m-0"><a class="text-white" href="${path }/lecture/list.do?no=1">해법강의</a></p>
-            <p class="m-0 px-2">/</p>
-            <p class="m-0"><a class="text-white" href="${path }/lecture/list.do?no=1">온라인강의</a></p>
+<!-- 페이지 상단 -->
+<div class="container-fluid pt-5 bg-primary hero-header">
+    <div class="container pt-5">
+        <div class="row g-5 pt-5">
+            <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                <h1 class="display-4 text-white mb-4 animated slideInRight">온라인강의</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="#">온라인강의</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">강의목록</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
-<%-- 페이지 상단 끝 --%>
+<!-- 페이지 상단 끝 -->
 
 <div class="container-fluid mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:50vh">
@@ -76,6 +80,7 @@
                                     <c:choose>
                                         <c:when test="${!empty lecture.thumbnail}">
                                            <img src="${path }/resources/upload/lecture/${lecture.thumbnail }" />
+
                                         </c:when>
                                         <c:otherwise>
                                             <img src="${path }/resources/image/lecture/dummy.png" />
@@ -132,9 +137,6 @@
     </div>
 </div>
 
-<div class="content">
-
-</div>
 
 <jsp:include page="../layout/footer.jsp" />
 </body>

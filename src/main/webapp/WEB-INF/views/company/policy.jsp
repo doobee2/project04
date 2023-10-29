@@ -25,20 +25,19 @@
 <body>
 
 <jsp:include page="../layout/header.jsp" />
-<%-- 페이지 상단 --%>
-<div class="container-fluid bg-primary mb-5">
-  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-    <h3 class="display-3 font-weight-bold text-white">이용약관</h3>
-    <div class="d-inline-flex text-white">
-      <p class="m-0"><a class="text-white" href="${path }/">Home</a></p>
-      <p class="m-0 px-2">/</p>
-      <p class="m-0"><a class="text-white" href="${path }/lecture/list.do?no=1">해법</a></p>
-      <p class="m-0 px-2">/</p>
-      <p class="m-0"><a class="text-white" href="${path }/lecture/list.do?no=1">이용약관</a></p>
+<!-- 페이지 상단 -->
+<div class="container-fluid pt-5 bg-primary hero-header">
+  <div class="container pt-5">
+    <div class="row g-5 pt-5">
+      <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+        <h1 class="display-4 text-white mb-4 animated slideInRight">이용약관</h1>
+        <nav aria-label="breadcrumb">
+        </nav>
+      </div>
     </div>
   </div>
 </div>
-<%-- 페이지 상단 끝 --%>
+<!-- 페이지 상단 끝 -->
 <div class="policy_con basic_cont">
   <p class="cont_stit">제 1 장 총 칙</p>
   <p class="dep_tit">제 1 조 (목적)</p>
