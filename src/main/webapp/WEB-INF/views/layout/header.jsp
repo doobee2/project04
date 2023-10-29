@@ -11,7 +11,7 @@
 
         <div class="d-block">
             <c:if test="${not empty sid}">
-                <a href="${path }/user/mypage.do" class="d-inline btn btn-primary">마이페이지</a>
+                <a href="${path }/user/myPage.do" class="d-inline btn btn-primary">마이페이지</a>
                 <a href="${path }/user/logout.do" class="btn btn-primary px-4 mr-2"><i class="fas fa-sign-out-alt pr-2" style="color:#ffffff;"></i> 로그아웃</a>
             </c:if>
             <c:if test="${empty sid}">
@@ -19,7 +19,7 @@
                 <a href="${path }/user/login.do" class="btn btn-success px-4"><i class="fas fa-sign-in-alt pr-2" style="color:#ffffff;"></i>로그인</a>
             </c:if>
             <c:if test='${sid == "admin"}'>
-                <a href="${path }/admin/adminpage" class="d-inline btn btn-primary">관리자메인</a>
+                <a href="${path }/admin/" class="d-inline btn btn-primary">관리자페이지</a>
             </c:if>
         </div>
 

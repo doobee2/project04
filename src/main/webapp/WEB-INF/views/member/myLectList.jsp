@@ -83,7 +83,6 @@
                             <li><a href="${path }/user/myPage.do" class="px-4 py-2">나의 정보</a></li>
                             <li><a href="${path }/user/mypageLectList.do" class="active px-4 py-2">나의 강의실</a></li>
                             <li><a href="${path }/user/mypagePaylistMem.do" class="px-4 py-2">나의 결제정보</a></li>
-                            <li><a href="${path }/academy/mypageReservation.do" class="px-4 py-2">나의 예약정보</a></li>
                         </ul>
                     </div>
                 </div>
@@ -96,13 +95,6 @@
                                 <div class="custom-block custom-block-full pb-1">
                                     <div class="custom-block-image-wrap">
 
-                                        <a href="${path}/user/myLecture.do?lno=${lecture.lno}">
-                                            <c:choose>
-                                                <c:when test="${!empty thumbnail}">
-                                                    <img src="${path }/resources/upload/${lecture.thumbnail }" width="300px">
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <img src="${path }/resources/image/lecture/dummy.png" width="300px">
 
                                         <a href="${path}/user/mypageLecture.do?lno=${lecture.lno}" style="display:block;">
                                             <c:choose>

@@ -18,10 +18,12 @@
 
 
         .container-login {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(197, 197, 197, 0.7);
             padding: 20px 40px;
             border-radius: 5px;
             width: 600px;
+            display: block;
+            margin: 50px auto;
         }
 
         .container-login h1 {
@@ -122,7 +124,7 @@
 </div>
 <!-- 페이지 상단 끝 -->
 <div class="container-login">
-    <h1>로그인</h1>
+    <img src="${path}/resources/image/common/logo_main.png" alt="로고">
     <form action="${path }/user/loginPro.do" id="login_frm" class="frm" method="post">
         <div class="form-controller">
             <input type="text" class="input" name="id" id="id" required />
