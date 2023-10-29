@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ed.haebeop.persistence.LectureMapper">
+    <select id="lectureList" resultType="kr.ed.haebeop.domain.Lecture">
+        <![CDATA[
+        select * from lecture
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'teacherNm'.toString()">
+                        nm LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        ORDER BY lno ASC LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+    <!-- 유저 강의 리스트 -->
+    <select id="lectviewList" resultType="kr.ed.haebeop.domain.LectureVO">
+        <![CDATA[
+        select * from lectview
+        ]]>
+        <where>
+            <if  test="sno != 0">sno = #{sno}</if>
+            <if  test="(sno != 0) and (searchType != null)">
+                and
+            </if>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'lect_tit'.toString()">
+                        lect_tit LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'teacherNm'.toString()">
+                        teacherNm LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        ORDER BY lno ASC LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+    <!-- 결제 강의 리스트 -->
+    <select id="mylectList" resultType="kr.ed.haebeop.domain.LectlistVO">
+        select * from mylect where id = #{id};
+    </select>
+    <!-- 해당 선생님이 담당하는 강의 찾기 -->
+    <select id="mylectListTeacher" resultType="integer">
+        select count(*) from lectview where teacherId = #{teacherId} and lno = #{lno};
+    </select>
+    <select id="check" resultType="integer">
+        select count(*) from mylect where id = #{id} and lno=#{lno}
+    </select>
+    <!-- 강의 메인페이지 노출-->
+    <select id="lectureList_main" resultType="kr.ed.haebeop.domain.LectureVO">
+        select * from lectview ORDER BY lno desc limit 3
+    </select>
+    <!-- 강의 상세보기 -->
+    <select id="lectureGet" resultType="kr.ed.haebeop.domain.Lecture">
+        select * from lecture where lno=#{lno}
+    </select>
+    <!-- 강의 입력 -->
+    <insert id="lectureAdd">
+        insert into lecture values (default, #{title}, #{subTitle}, #{content}, #{lectureType}, #{studentCnt}, default, default, default, #{teacherId}, #{teacherNm}, #{thumbnail}, #{lvideo}, #{sno}, #{cost}, #{bookname}, #{bthumbnail})
+    </insert>
+    <!-- 강의 수정 -->
+    <update id="lectureUpdate">
+        update lecture set title=#{title}, subTitle=#{subTitle}, content=#{content}, lectureType=#{lectureType}, studentCnt=#{studentCnt}, teacherId=#{teacherId}, teacherNm=#{teacherNm}, sno=#{sno}, cost=#{cost} where lno=#{lno}
+    </update>
+    <!-- 강의 삭제 -->
+    <delete id="lectureDelete">
+        delete from lecture where lno=#{lno}
+    </delete>
+    <!-- 페이징 처리를 위한 카운트 -->
+    <select id="lectureCount" resultType="integer">
+        <![CDATA[
+        select count(*) from lectview
+        ]]>
+        <where>
+            <if  test="sno != 0">sno = #{sno}</if>
+            <if  test="(sno != 0) and (searchType != null)">
+                and
+            </if>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'lect_tit'.toString()">
+                        lect_tit LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'teacherNm'.toString()">
+                        teacherNm LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+    <!-- 페이징 처리를 위한 카운트 -->
+    <select id="lectviewCount" resultType="integer">
+        <![CDATA[
+        select count(*) from lectview
+        ]]>
+        <where>
+            <if  test="sno != 0">sno = #{sno}</if>
+            <if  test="(sno != 0) and (searchType != null)">
+                and
+            </if>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'lect_tit'.toString()">
+                        lect_tit LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'teacherNm'.toString()">
+                        teacherNm LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+</mapper>
