@@ -67,16 +67,6 @@
             width: 100%;
         }
 
-        .form-controller input {
-            border: none;
-            border-bottom: 2px #fff solid;
-            width: 100%;
-            padding: 10px 0;
-            font-size: 18px;
-            color: black;
-            display: block;
-            visibility: hidden;
-        }
 
         .form-controller input:focus,
         .form-controller input:valid {
@@ -102,7 +92,6 @@
             display: inline-block;
             font-size: 18px;
             min-width: 5px;
-            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
     </style>
@@ -127,8 +116,8 @@
     <img src="${path}/resources/image/common/logo_main.png" alt="로고">
     <form action="${path }/user/loginPro.do" id="login_frm" class="frm" method="post">
         <div class="form-controller">
-            <input type="text" class="input" name="id" id="id" required />
-            <label><span>아이디</span></label>
+            <label>아이디</label>
+            <span><input type="text" class="input" name="id" id="id" required /></span>
         </div>
         <div class="form-controller">
             <input type="password" class="input" name="pw" id="pw" required />
@@ -138,16 +127,6 @@
         <p class="text">회원이 아니신가요? <a href="${path }/user/term.do">회원가입</a></p>
     </form>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $(".container-login").click(function(){
-            $(".form-controller label span").css("transform", "translateY(-50px)");
-            $(".form-controller input").css({"visibility": "visible", "transition-delay": "0.3s", "transition-duration": "1s"});
-        })
-
-    })
-</script>`
 <script src="${path }/resources/js/jquery-3.7.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="${path }/resources/js/common.js"></script>

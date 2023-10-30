@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="${path }/resources/css/index.css" />
     <meta charset="utf-8">
     <title>스마트해법</title>
-
+    <style>
+        .container-fluid.bg-index {
+            background-image: url("${path}/resources/image/sub/banner01.png") !important;
+            background-size: cover!important;
+            background-position-y: center;
+        }
+    </style>
 </head>
 <body>
 <!-- 템플릿 테스트 -->
@@ -28,7 +34,7 @@
 <jsp:include page="./layout/header.jsp" />
 
 <!-- 배너-->
-<div class="container-fluid pt-5 bg-primary hero-header mb-5">
+<div class="container-fluid pt-5 hero-header mb-5 bg-index">
     <div class="container pt-5">
         <div class="row g-5 pt-5">
             <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
@@ -41,11 +47,11 @@
         </div>
     </div>
 </div>
-
 <!-- 배너 끝 -->
 
-<!-- Case Start -->
+<!-- 강의목록 -->
 <div class="container-fluid bg-light py-5">
+
     <div class="container py-5">
         <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
             <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Case Study</div>
@@ -74,8 +80,8 @@
         </div>
     </div>
 </div>
-<!-- Case End -->
-<!-- Testimonial Start -->
+<!-- 강의목록 끝 -->
+<!-- 수강생 후기 -->
 <div class="container-xxl py-5">
     <div class="container py-5">
         <div class="row g-5">
@@ -98,18 +104,12 @@
                         </div>
                     </div>
                     </c:forEach>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Testimonial End -->
-
-
-
-
+<!-- 수강생 후기 끝 -->
 <jsp:include page="./layout/footer.jsp" />
-
 </body>
 </html>

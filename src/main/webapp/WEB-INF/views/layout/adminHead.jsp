@@ -38,6 +38,11 @@
 
 <script src="${path }/resources/js/jquery-3.7.1.min.js"></script>
 
+<!-- Libraries Stylesheet -->
+<link href="${path }/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="${path }/resources/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+
 <!--
 <script>
     document.oncontextmenu = function () {return false;}
