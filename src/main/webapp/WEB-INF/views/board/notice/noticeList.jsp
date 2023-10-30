@@ -33,19 +33,6 @@
 <!-- 페이지 상단 끝 -->
 <div class="container-fluid mb-5">
 <div class="content">
-    <section class="page-title bg-02">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-12">
-                    <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">공지사항</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <section class="section blog-wrap container">
         <form action="${path }/notice/list.do" method="get" class="field has-addons has-addons-right">
             <p class="control">

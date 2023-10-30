@@ -85,7 +85,6 @@ public class LectureCtrl {
         List<Curri> curriList = curriService.curriList(lno);
 
         model.addAttribute("check", check);
-
         model.addAttribute("teacher", teacher);
         model.addAttribute("reviewList", reviewList);
         model.addAttribute("subject", subject);

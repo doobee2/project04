@@ -49,7 +49,7 @@
     <div class="container py-5">
         <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
             <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Case Study</div>
-            <h1 class="mb-4">온라인에서도 경험할 수 있는<br>최고의 강의!</h1>
+            <h1 class="mb-4">온라인에서 경험하는<br>최고의 강의!</h1>
         </div>
         <div class="row g-4">
             <c:forEach var="lec" items="${lectureList}">
@@ -82,7 +82,7 @@
             <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                 <h1 class="mb-4">수강생 후기</h1>
                 <p class="mb-4">
-                    최고의 교육센터 '해법'을 경험한 수강생들의 리얼한 수강 후기입니다. 여러분도 경험해보세요!
+                    최고의 교육센터 '해법'을 경험한 수강생들의 리얼한 수강 후기입니다. <br> 여러분도 경험해보세요!
                 </p>
             </div>
             <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">

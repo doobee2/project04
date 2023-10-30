@@ -60,11 +60,9 @@ public class AdminCtrl {
     private FreeService freeService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String adminpage(Model model) throws Exception{
-
+    public String adminpage(Model model)  {
         return "/admin/adminpage";
     }
-
 
     @GetMapping("/memberConf.do")
     public String memberList(HttpServletRequest request, Model model) throws Exception {
@@ -276,7 +274,8 @@ public class AdminCtrl {
         String msg = "";
 
         ServletContext application = request.getSession().getServletContext();
-        String realPath = application.getRealPath("/resources/upload/lecture");       // 운영 서버
+        //String realPath = application.getRealPath("/resources/upload/lecture");       // 운영 서버
+        String realPath = "D:\\seulbee\\uploadtest";
 
         Lecture lecture = new Lecture();
         lecture.setTitle(request.getParameter("title"));
@@ -403,7 +402,8 @@ public class AdminCtrl {
         int lno = Integer.parseInt(request.getParameter("lno"));
 
         ServletContext application = request.getSession().getServletContext();
-        String realPath = application.getRealPath("/resources/upload");       // 운영 서버
+        //String realPath = application.getRealPath("/resources/upload");       // 운영 서버
+        String realPath = "D:\\seulbee\\uploadtest";
 
         Lecture lecture = new Lecture();
         lecture.setLno(lno);

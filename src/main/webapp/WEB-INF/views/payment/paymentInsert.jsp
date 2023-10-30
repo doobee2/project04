@@ -1,11 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>HEABEOP::</title>
     <jsp:include page="../layout/head.jsp" />
@@ -186,7 +184,6 @@
                             <input type="button" name="ptbtn" id="ptbtn" style="margin-left: 30px;" class="btn btn-primary" value="사용" onclick= "pointuse()">
                             <input type="button" name="ptbre" id="ptbre" class="btn btn-primary" value="취소" style="margin-left: 5px" onclick= "pointreset()">
                         </td>
-
                     </tr>
                     </tbody>
                     <tfoot>
@@ -201,7 +198,6 @@
                     </tr>
                     </tfoot>
                 </table>
-
                 <h3 style="display: inline-block">주문자 정보 </h3><p id="closebar1" style="display: inline-block" >▲</p>
                 <section id="closebar2" style="display: block">
                 <div class="row" >
@@ -215,7 +211,6 @@
                 <div class="row" >
                     <div class="col-2"><label for="email" class="form-label">이메일</label></div>
                     <div class="col-4"><input type="email" class="form-control" id="email" name="email" readonly value="${mem.email}"></div>
-
                 </div>
                     <br>
                     <br>
@@ -257,25 +252,16 @@
                         <label for="pnum" class="form-label" >카드 번호</label></div>
                     <div class="col-2" id="labels2" style="display: none">
                         <label class="form-label" >계좌 번호</label></div>
-
                     <div class="col-6" id="labels3">
                         <input type="text" class="form-control" id="pnum" name="pnum" value="" required placeholder=" - 제외"></div>
                     <div class="col-6" id="labels4" style="display: none; color: black;">
                         <label class="form-label" >061702 - 04 - 152352</label></div>
-
                     <div class="col-2">
                         <input type="button" id="paybtn" value="결제하기" class="btn btn-primary">
                     </div>
-                    <div class="col-2">
-                        <input type="button" id="naverPayBtn" >
-                    </div>
                 </div>
-
-
-                <%--  일단은 pay했다고 치기  --%>
                 <input type="hidden" name="payCk" id="payCk" value="yes">
                 <input type="submit" id="buy" value="구매" class="btn btn-primary">
-                <a href="${path }/lecture/list.do" class="btn btn-primary">제품 목록</a>
             </form>
 
         </div>

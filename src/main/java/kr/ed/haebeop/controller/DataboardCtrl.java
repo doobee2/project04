@@ -81,7 +81,8 @@ public class DataboardCtrl {
     @PostMapping("insert.do")
     public String databoardInsert(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
         //String realFolder = req.getRealPath("/resources/upload");
-        String realFolder = "D:\\seulbee\\project04\\src\\main\\webapp\\resources\\upload";
+        String realFolder = "D:\\seulbee\\uploadtest";
+
 
         Databoard dto = new Databoard();
 

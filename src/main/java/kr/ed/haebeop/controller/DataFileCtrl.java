@@ -48,7 +48,7 @@ public class DataFileCtrl {
             byte[] bytes = upload.getBytes();
             //이미지 경로 생성
 
-            String path = "D:\\seulbee\\project04\\src\\main\\webapp\\resources\\upload";
+            String path = "D:\\seulbee\\uploadtest";
             //String path = request.getRealPath("/resource/uploadCkImage/");
             String ckUploadPath = path + uid + "_" + fileName;
 
@@ -90,7 +90,7 @@ public class DataFileCtrl {
     public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //서버에 저장된 이미지 경로
         //String path = request.getRealPath("/resource/uploadCkImage/");
-        String path = "D:\\seulbee\\project04\\src\\main\\webapp\\resources\\upload";
+        String path = "D:\\seulbee\\uploadtest";
         System.out.println(path);
         String sDirPath = path + uid + "_" + fileName;
         File imgFile = new File(sDirPath);
