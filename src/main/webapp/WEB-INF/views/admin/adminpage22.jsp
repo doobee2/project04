@@ -94,6 +94,57 @@
     </div>
     <%-- 관리자 페이지 바 끝 --%>
 
+
+    <!-- 최신 강의 목록 -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <h>최신 강의 확인하기</h>
+            <c:forEach var="lec" items="${lectureList}">
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-light text-center rounded p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h4><a href="${path}/lecture/get.do?lno=${lec.lno}">${lec.lect_tit}</a></h4>
+                            <p>${lec.subTitle}</p>
+                        </div>
+                        <c:choose>
+                            <c:when test="${!empty lec.thumbnail}">
+                                <img class="card-img-top mb-2" id="worldwide-sales" src="${path }/resources/upload/lecture/${lec.thumbnail }" width="300px" alt="강의썸네일" />
+                            </c:when>
+                            <c:otherwise>
+                                <img class="card-img-top mb-2" id="worldwide-sales" src="${path }/resources/upload/lecture/dummy.png" width="300px" alt="더미썸네일" />
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+    <!-- 강의 목록 끝 -->
+    <!-- 리뷰 목록 -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-md-6 col-xl-8">
+                <div class="h-100 bg-light rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <h6 class="mb-0">최신 리뷰</h6>
+                    </div>
+                    <c:forEach var="rev" items="${reviewList}">
+                        <div class="d-flex align-items-center border-bottom py-3">
+                            <div class="w-100 ms-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-0">${rev.memId}</h6>
+                                </div>
+                                <span>${rev.content}</span>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 리뷰목록 끝 -->
+
+
     <%-- 관리자 페이지 메인 시작 --%>
     <div class="content-body">
         <div class="container-fluid mt-3">

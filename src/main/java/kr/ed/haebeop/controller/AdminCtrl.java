@@ -20,7 +20,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 @Controller
@@ -42,6 +45,9 @@ public class AdminCtrl {
     private CommentService commentService;
 
     @Autowired
+    private ReviewService reviewService;
+
+    @Autowired
     private LectureService lectureService;
 
     @Autowired
@@ -60,7 +66,21 @@ public class AdminCtrl {
     private FreeService freeService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String adminpage(Model model)  {
+    public String adminpage(Locale locale, Model model) throws Exception {
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String today = dateFormat.format(date);
+
+        List<Review> reviewList = reviewService.reviewList_main();
+        model.addAttribute("reviewList", reviewList);
+
+        List<LectureVO> lectureList = lectureService.lectureList_main();
+        model.addAttribute("lectureList", lectureList);
+
+        model.addAttribute("today", today);
+        model.addAttribute("title", "해법");
+
         return "/admin/adminpage";
     }
 

@@ -6,12 +6,23 @@
 <html lang="en">
 <head>
     <title>HEABEOP</title>
-    <jsp:include page="../layout/adminHead.jsp" />
+    <jsp:include page="../layout/head.jsp" />
     <link rel="stylesheet" href="${path }/resources/css/admin.css" />
     <link rel="stylesheet" href="${path }/resources/css/owl.carousel.css" />
 </head>
 <body>
-    <jsp:include page="../layout/adminHeader.jsp" />
+<jsp:include page="../layout/header.jsp" />
+<!-- 페이지 상단 -->
+<div class="container-fluid pt-5 bg-primary hero-header">
+    <div class="container pt-5">
+        <div class="row g-5 pt-5">
+            <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                <h1 class="display-4 text-white mb-4 animated slideInRight">관리자페이지</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 페이지 상단 끝 -->
     <div class="pcoded-main-container">
         <div class="pcoded-content">
             <!-- [ breadcrumb ] start -->
