@@ -40,7 +40,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">공지사항</h1>
+                        <h1 class="is-capitalize text-lg font-happy">공지사항 수정</h1>
                     </div>
                 </div>
             </div>
@@ -70,8 +70,9 @@
             </tbody>
         </table>
             <div class="buttons">
-                <input type="submit" class="is-mainColor button" value="글 등록" >
-                <a class="button is-success" href="${path }/notice/list.do">글 목록</a>
+
+                <input type="submit" class="btn btn-primary" value="글 등록" >
+                <a class="btn btn-warning" href="${path }/notice/list.do">글 목록</a>
             </div>
         </form>
     </section>

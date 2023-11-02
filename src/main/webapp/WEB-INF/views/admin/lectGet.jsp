@@ -131,13 +131,8 @@
                                         <strong class="d-inline me-4">강의 교재 </strong>
                                         <span>${lecture.bookname }</span><br>
                                         <c:choose>
-
-                                            <c:when test="${!empty bthumbnail}">
-                                                <img src="${path }/resources/upload/${lecture.bthumbnail }" width="200px">
-
                                             <c:when test="${!empty lecture.bthumbnail}">
                                                 <img src="${path }/resources/upload/lecture/${lecture.bthumbnail }" width="200px">
-
                                             </c:when>
                                             <c:otherwise>
                                                 <img src="${path }/resources/image/lecture/booksample.jpg" width="200px">

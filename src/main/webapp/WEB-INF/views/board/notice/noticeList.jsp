@@ -46,7 +46,7 @@
                 <input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
             </p>
             <p class="control">
-                <input type="submit" class="button is-mainColor" value="검색" />
+                <input type="submit" class="btn btn-dark" value="검색" />
             </p>
         </form>
 
@@ -81,7 +81,7 @@
 
         <c:if test='${sid eq "admin"}'>
         <div class="buttons is-centered">
-            <a href="${path }/notice/insert.do" class="button is-mainColor">공지 등록</a>
+            <a href="${path }/notice/insert.do" class="btn btn-info">공지 등록</a>
         </div>
         </c:if>
 

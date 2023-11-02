@@ -43,7 +43,7 @@
 			<div class="columns">
 				<div class="column is-12">
 					<div class="block has-text-centered">
-						<h1 class="is-capitalize text-lg font-happy">자유게시판</h1>
+						<h1 class="is-capitalize text-lg font-happy">자유게시판 수정</h1>
 					</div>
 				</div>
 			</div>
@@ -75,8 +75,8 @@
 				</tbody>
 			</table>
 			<div class="buttons is-centered">
-				<a class="button is-mainColor" href="${path }/free/list.do">글 목록</a>
-				<input type="submit" class="button is-success" value="수정 완료" >
+				<a class="btn btn-warning" href="${path }/free/list.do">글 목록</a>
+				<input type="submit" class="btn btn-primary" value="수정 완료" >
 			</div>
 		</form>
 	</section>

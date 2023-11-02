@@ -48,7 +48,7 @@
 			<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
 		</p>
 		<p class="control">
-			<input type="submit" class="button is-mainColor" value="검색" />
+			<input type="submit" class="btn btn-dark" value="검색" />
 		</p>
 	</form>
 	<table class="table">
@@ -85,7 +85,7 @@
 	</table>
 	<c:if test="${not empty sid}">
 		<div class="buttons is-centered">
-			<a class="button is-mainColor" href="${path }/free/insert.do">글쓰기</a>
+			<a class="btn btn-info" href="${path }/free/insert.do">글쓰기</a>
 		</div>
 	</c:if>
 </section>

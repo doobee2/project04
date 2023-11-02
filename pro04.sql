@@ -55,11 +55,11 @@ CREATE TABLE lecture(
 	teacherId VARCHAR(20) NOT NULL,				-- 강의 담당 선생 아이디
 	teacherNm VARCHAR(20),
 	thumbnail VARCHAR(100),                	-- 강의 썸네일
-       lvideo VARCHAR(100)  ,    						-- 샘플영상
-       sno INT NOT NULL, 								-- 과목
-       cost INT NOT NULL, 								-- 강의가격
-       bookname VARCHAR(150),							-- 교재명
-       bthumbnail VARCHAR(100)    					-- 교재 썸네일
+	lvideo VARCHAR(100)  ,    						-- 샘플영상
+	sno INT NOT NULL, 								-- 과목
+	cost INT NOT NULL, 								-- 강의가격
+	bookname VARCHAR(150),							-- 교재명
+	bthumbnail VARCHAR(100)    					-- 교재 썸네일
 );
 
 CREATE TABLE subject(
@@ -166,35 +166,13 @@ SELECT * FROM notice;
 -- 자료실
 -- 자료실(순번, 제목, 내용, 자료파일1, 자료파일2, 자료파일3, 작성일, 작성자, 읽은 횟수)
 CREATE TABLE fileboard(
-                          fbno INT PRIMARY KEY AUTO_INCREMENT,   -- 게시글 번호 : 자동 발생
+                          fno INT PRIMARY KEY AUTO_INCREMENT,   -- 게시글 번호 : 자동 발생
                           title VARCHAR(200) NOT NULL,  -- 게시글 제목
                           content VARCHAR(1000),   	-- 게시글 내용
-                          file1	VARCHAR(20),
-                          file2	VARCHAR(20),
-                          file3	VARCHAR(20),
-                          author VARCHAR(20) NOT NULL,   									-- 작성자
-                          resDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   	-- 등록일
+                          file1	VARCHAR(100),
+                          file2	VARCHAR(100),
+                          file3	VARCHAR(100),
+                          author VARCHAR(16) NOT NULL,   									-- 작성자
+                          regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   	-- 등록일
                           visited INT DEFAULT 0   											-- 조회수
-);
-
-DROP TABLE fileboard;
-
-CREATE TABLE databoard(
-                          bno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
-                          title VARCHAR(200) NOT NULL,   -- (게시글 제목)
-                          content VARCHAR(1000),   -- (게시글 내용)
-                          author VARCHAR(16) NOT NULL,   -- (작성자)
-                          relations VARCHAR(20) DEFAULT 'no', -- dataFile table에 관련 자료가 있는지 여부.
-                          regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
-                          visited INT DEFAULT 0   -- (조회수)
-);
-
-CREATE TABLE datafile(
-                         dno INT primary KEY AUTO_INCREMENT,
-                         fileName VARCHAR(100),
-                         saveName VARCHAR(100),
-                         fileType VARCHAR(100),
-                         relations VARCHAR(20),
-                         bno INT,
-                         saveFolder VARCHAR(100)
 );

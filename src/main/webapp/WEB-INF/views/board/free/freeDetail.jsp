@@ -57,12 +57,12 @@
 						</div>
 						<div class="content">${dto.content }</div>
 						<div class="buttons is-centered">
-							<a class="button is-mainColor" href="${path }/free/list.do">목록</a>
+							<a class="btn btn-warning" href="${path }/free/list.do">목록</a>
 							<c:if test="${not empty sid && (dto.author eq sid)}">
-								<a class="button is-success" href="${path }/free/edit.do?fno=${dto.fno}&author=${dto.author}">수정</a>
+								<a class="btn btn-info" href="${path }/free/edit.do?fno=${dto.fno}&author=${dto.author}">수정</a>
 							</c:if>
 							<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
-								<a class="button is-mainColor" href="${path }/free/delete.do?fno=${dto.fno}&author=${dto.author}">삭제</a>
+								<a class="btn btn-danger" href="${path }/free/delete.do?fno=${dto.fno}&author=${dto.author}">삭제</a>
 							</c:if>
 						</div>
 					</div>
@@ -103,7 +103,7 @@
 									</p>
 								</div>
 									<c:if test="${sid eq comment.author || sid eq 'admin'}">
-										<a class="button is-primary" href="${path }/comment/delete.do?cno=${comment.cno}&fno=${fno}">삭제</a>
+										<a class="btn btn-danger" href="${path }/comment/delete.do?cno=${comment.cno}&fno=${fno}">삭제</a>
 									</c:if>
 								</div>
 							</li>

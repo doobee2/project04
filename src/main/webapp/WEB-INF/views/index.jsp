@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-<!-- 템플릿 테스트 -->
+<!-- 템플릿 -->
 <!-- Spinner Start -->
 <div id="spinner"
      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -30,9 +30,7 @@
     </div>
 </div>
 <!-- Spinner End -->
-
 <jsp:include page="./layout/header.jsp" />
-
 <!-- 배너-->
 <div class="container-fluid pt-5 hero-header mb-5 bg-index">
     <div class="container pt-5">

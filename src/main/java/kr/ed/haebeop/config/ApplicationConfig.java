@@ -10,12 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "kr.ed.haebeop")
 public class ApplicationConfig {
 
-
-
-    // Chat
-    @Bean
-    public ObjectMapper mapper() { return new ObjectMapper(); }
-
     // Service
     @Bean
     public MemberService memberService() {return new MemberServiceImpl();}

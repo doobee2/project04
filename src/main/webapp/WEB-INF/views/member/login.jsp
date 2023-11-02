@@ -75,7 +75,6 @@
         }
 
         .form-controller label {
-            position: absolute;
             top: 19px;
             left: 8px;
             pointer-events: none;
@@ -117,14 +116,14 @@
     <form action="${path }/user/loginPro.do" id="login_frm" class="frm" method="post">
         <div class="form-controller">
             <label>아이디</label>
-            <span><input type="text" class="input" name="id" id="id" required /></span>
+            <input type="text" class="input" name="id" id="id" required />
         </div>
         <div class="form-controller">
+            <label>비밀번호</label>
             <input type="password" class="input" name="pw" id="pw" required />
-            <label><span>비밀번호</span></label>
         </div>
         <button type="submit" class="login-btn">로그인</button>
-        <p class="text">회원이 아니신가요? <a href="${path }/user/term.do">회원가입</a></p>
+        <p class="text">해법의 회원이 되어보세요! <a href="${path }/user/term.do">회원가입</a></p>
     </form>
 </div>
 <script src="${path }/resources/js/jquery-3.7.1.min.js"></script>

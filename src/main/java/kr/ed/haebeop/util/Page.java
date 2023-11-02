@@ -11,9 +11,9 @@ public class Page {
     private int curPageNum = 1;                         // 현재 페이지 숫자
     private int postCount = 10;                         // 한 페이지 당 리스트 출력 갯수
     private int postStart;                              // sql 문에 입력될 시작 숫자
-    private int pageBlockNum = 1;                       // 넌 뭐냐3...?
+    private int pageBlockNum = 1;
     private int totalBlockNum = 1;                      // 총 페이징 처리 된 숫자
-    private int totalPageCount = 1;                     // 총 ..?뭐냐..?
+    private int totalPageCount = 1;
     private String searchType = "";                     // 입력된 검색 타입
     private String searchKeyword = "";                  // 입력된 검색 키워드
 

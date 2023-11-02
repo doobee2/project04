@@ -49,10 +49,10 @@
                             ${notice.content }
                         </div>
                         <div class="buttons is-centered">
-                            <a class="button is-mainColor" href="${path }/notice/list.do">글 목록</a>
+                            <a class="btn btn-warning" href="${path }/notice/list.do">목록</a>
                             <c:if test='${sid eq "admin"}'>
-                                <a class="button is-success" href="${path }/notice/edit.do?no=${notice.no}">글 수정</a>
-                                <a class="button is-mainColor" href="${path }/notice/delete.do?no=${notice.no}">글 삭제</a>
+                                <a class="btn btn-info" href="${path }/notice/edit.do?no=${notice.no}">수정</a>
+                                <a class="btn btn-danger" href="${path }/notice/delete.do?no=${notice.no}">삭제</a>
                             </c:if>
                         </div>
                     </div>

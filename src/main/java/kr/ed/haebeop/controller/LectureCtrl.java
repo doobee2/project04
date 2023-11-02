@@ -71,7 +71,7 @@ public class LectureCtrl {
 
     //회원의 강의 상세보기
     @GetMapping("/get.do")
-    public String lectureUpdate(HttpServletRequest request, Model model) throws Exception{
+    public String lectureGet(HttpServletRequest request, Model model) throws Exception{
         String sid = (String) session.getAttribute("sid");
         int lno = Integer.parseInt(request.getParameter("lno"));
         LectlistVO lectlistVO = new LectlistVO();

@@ -21,11 +21,8 @@
             <div class="col-lg-6">
                 <c:choose>
                     <c:when test="${!empty thumbnail}">
-
                         <img src="${path }/resources/upload/${lecture.thumbnail }" />
-
                         <img src="${path }/resources/upload/lecture/${lecture.thumbnail }" />
-
                     </c:when>
                     <c:otherwise>
                         <img src="${path }/resources/image/lecture/dummy.png" />
@@ -39,11 +36,8 @@
                 <h3 class="lead text-white-50 mb-4">${lecture.teacherId } 선생님</h3>
                 <c:choose>
                     <c:when test="${!empty lvideo}">
-
                         <a class="btn btn-danger btn-lg px-4 me-sm-3" id="vvv" href="${path }/resources/upload/${lecture.lvideo }" target="_blank" >강의 맛보기</a>
-
                         <a class="btn btn-danger btn-lg px-4 me-sm-3" id="vvv" href="${path }/resources/upload/lecture/${lecture.lvideo }" target="_blank" >강의 맛보기</a>
-
                     </c:when>
                     <c:otherwise>
                         <a class="btn btn-danger btn-lg px-4 me-sm-3" id="vvv" href="${path }/resources/image/lecture/lectvideo01.mp4" target="_blank" >강의 맛보기</a>
@@ -79,21 +73,8 @@
     </div>
 </div>
 
-
-
 <jsp:include page="../layout/footer.jsp" />
 
-<%--<!-- Bootstrap core JS-->--%>
-<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>--%>
-<%--<!-- Core theme JS-->--%>
-<%--<script src="js/scripts.js"></script>--%>
-
-<%--<!-- Bootstrap core JS-->--%>
-<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>--%>
-<%--<!-- Core theme JS-->--%>
-<%--<script src="js/scripts.js"></script>--%>
-
-<!-- 우측탭 스크롤에 맞게 이동-->
 <script>
     window.addEventListener("scroll", function() {
         const scrollingDiv = document.querySelector(".col-lg-4");
